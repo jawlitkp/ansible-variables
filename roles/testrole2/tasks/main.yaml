@@ -1,0 +1,5 @@
+---
+
+- name: Debug print from testrole2
+  debug:
+    msg: xxx={{ xxx | default("Undefined on the testrole2 level") }}

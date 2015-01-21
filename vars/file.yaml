@@ -1,0 +1,3 @@
+---
+
+xxx: This is the vars file included via vars_files in the playbook

@@ -1,0 +1,19 @@
+---
+
+# Run me by:
+# ansible-playbook -i hosts -l localhost -e '{ "xxx": "This is the value passed to the playbook from command line" }' ./site.yaml
+
+- hosts: all
+  connection: local
+  gather_facts: no
+  vars_files:
+    - vars/file.yaml
+  vars:
+    xxx: This is the vars section in the play
+  roles:
+    - role: testrole1
+      xxx: This is the value passed to the role in the play
+  tasks:
+    - name: Debug print from the play
+      debug:
+        msg: xxx={{ xxx | default("Undefined on the play level") }}
